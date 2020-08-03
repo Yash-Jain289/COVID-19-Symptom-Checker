@@ -1,0 +1,131 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/question.css">
+</head>
+<body onload="pop()">
+    <% if(count == 1) { %>
+        <div id="box_new">
+            <span class="ion-checkmark-round"></span>
+            <h1>Important Message!</h1>
+            <p>If you are currently experiencing severe symptoms such as difficulty in breathing, chest pain or other concerning symptoms, call 995 or go to an Emergency Department (A&E)
+                at a hospital.</p>
+            <p>Recommendations provided by this checker do not constitute medical advice and should not be used to diagnose or treat medical conditions.</p>
+            <a onclick="pop()" class="close">I UNDERSTAND</a>
+        </div>
+    <% } %>
+   <div id="box">
+        <% if(nextQues === 'false') { %>
+            <form action="/dashboard/symptom-checker" method="GET">
+                <% if(data.question.type === 'group_multiple') { %>
+                    <h2 class="main_quiz_head"><%= data.question.text %></h2>
+                    <% for (let question of data.question.items) { %>
+                            <div>
+                                <h2 class="box-question">Q: <%= question.name %></h2>
+                                <% for (let choice of question.choices) { %>
+                                    <input type="checkbox" id="choiceId" name="choiceId" value="<%= [choice.id, question.id] %>" class="checkbox_style">
+                                    <label for="choiceId"><%= choice.label %></label>
+                                    <br>
+                                <% } %>
+                            </div>
+                            <h2 class="quiz-explanation"><span class="span_style">Explanation: </span><%= question.explanation %></h2>
+                    <% } %>
+                <% } %>
+                <% if(data.question.type === 'group_single') { %>
+                    <h2 class="main_quiz_head"><%= data.question.text %></h2>
+                    <% for (let question of data.question.items) { %>
+                            <div>
+                                <h2 class="box-question">Q: <%= question.name %></h2>
+                                <% for (let choice of question.choices) { %>
+                                    <input type="checkbox" id="choiceId" name="choiceId" value="<%= [choice.id, question.id] %>" class="checkbox_style">
+                                    <label for="choiceId"><%= choice.label %></label>
+                                    <br>
+                                <% } %>
+                            </div>
+                            <h2 class="quiz-explanation"><span class="span_style">Explanation: </span><%= question.explanation %></h2>
+                    <% } %>
+                <% } %>
+                <% if(data.question.type === 'single') { %>
+                    <h2 class="main_quiz_head"><%= data.question.text %></h2>
+                    <% for (let question of data.question.items) { %>
+                            <div>
+                                <h2 class="box-question">Q: <%= question.name %></h2>
+                                <% for (let choice of question.choices) { %>
+                                    <input type="checkbox" id="choiceId" name="choiceId" value="<%= [choice.id, question.id] %>" class="checkbox_style">
+                                    <label for="choiceId"><%= choice.label %></label>
+                                    <br>
+                                <% } %>
+                            </div>
+                            <h2 class="quiz-explanation"><span class="span_style">Explanation: </span><%= question.explanation %></h2>
+                    <% } %>
+                <% } %>
+
+                <button type="submit" class="btn_style">NEXT QUESTIONS</button>
+                <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+            </form>
+        <% } else { %>
+            <h2 class="main_quiz_head">Your Record Is saved.</h1>
+            <h2 class="result_sec"><span class="result_span">RESULT: </span><%= data.description %></h2>
+            <h3 class="result_sec"><span class="result_span">ACTION: </span><%= data.label %></h3>
+        <% } %>
+   </div>
+   <% if (showToggle) { %>
+    <a class="close close_add" onclick="toggle()">Show Previous Reports</a>
+   <% } %>
+    <table id="table">
+        <caption>Your Summary</caption>
+        <thead>
+        <tr>
+            <th scope="col">Report Id</th>
+            <th scope="col">Result</th>
+            <th scope="col">Action</th>
+            <th scope="col">Time</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <% if(reports.length > 0) { %>
+            <tbody>
+                <% for(let report of reports) { %>
+                    <tr>
+                        <td data-label="reportId"><%= report._id %></td>
+                        <td data-label="reportResult"><%= report.reportResult %></td>
+                        <td data-label="action"><%= report.action %></td>
+                        <td data-label="time"><%= report.time %></td>
+                        <td data-label="date"><%= report.date %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        <% } %>
+    </table>
+    <% if(showToggle) { %>
+        <a href="/dashboard/patient" class="goToHome" id="goDashboard">Go To DashBoard</a>
+    <% } %>
+   <script type="text/javascript">
+        var c = 0;
+        function pop() {
+            if(c == 0) {
+                document.getElementById("box_new").style.display = "block";
+                document.getElementById("box").style.filter = "blur(4px)";
+                c = 1;
+            } else {
+                document.getElementById("box_new").style.display = "none";
+                document.getElementById("box").style.filter = "blur(0px)";
+                c = 0;
+            }
+        }
+
+        var flag = true;
+        function toggle() {
+            if(flag) {
+                document.getElementById("table").style.display = "table";
+                document.getElementById("goDashboard").style.marginTop = "20px";
+                flag = false;
+            } else {
+                document.getElementById("table").style.display = "none";
+                flag = true;
+            }
+        }
+        $('input[type="checkbox"]').on('change', function() {
+        $(this).siblings('input[type="checkbox"]').prop('checked', false);
+        });
+    </script>
+<%- include('../includes/end.ejs') %>
+

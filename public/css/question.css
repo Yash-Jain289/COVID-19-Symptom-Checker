@@ -1,0 +1,246 @@
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins-Regular;
+    padding: 20px;
+}
+
+#box_new {
+    width: 500px;
+    overflow: hidden;
+    background: #f1f1f1;
+    box-shadow: 0 0 20px black;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    padding: 10px;
+    text-align: center;
+    display: none;
+}
+
+
+#box_new span {
+    color: #2ecc71;
+    font-size: 40px;
+    display: block;
+    margin: 20px 0;
+}
+
+#box_new h1 {
+    color: white;
+    background-color: #4A5C74;
+    padding: 10px;
+    width: 110%;
+    position: relative;
+    right: 20px;
+    bottom: 35px;
+}
+
+.close {
+    font-size: 20px;
+    color: white;
+    padding: 10px 30px;
+    cursor: pointer;   
+    background: #3498db;
+    display: inline-block;
+    border-radius: 4px;
+    font-family: Poppins-Bold;
+}
+
+.box {
+    padding: 0 30px 20px 30px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.box-question {
+    font-size: 20px;
+    color: blue;
+}
+
+.main_quiz_head {
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 10px;
+}
+
+.checkbox_style {
+    font-size: 30px;
+}
+
+label {
+    font-family: Poppins-Regular;
+}
+
+.quiz-explanation {
+    color: grey;
+    font-size: 15px;
+}
+  
+
+.btn_style {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: Poppins-Bold;
+}
+
+.btn_style:hover {
+    background-color: grey;
+}
+
+.span_style {
+    text-transform: uppercase;
+    color: black;
+}
+
+.result_sec {
+    font-size: 20px;
+    font-family: Poppins-Regular;
+}
+
+.result_span {
+    color: blue;
+    margin-right: 10px;
+    font-size: Poppins-Bold;
+}
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+
+.close_add {
+    text-align: center;
+}
+
+table {
+    display: none;
+}
+
+.goToHome {
+    font-size: 20px;
+    color: white;
+    padding: 10px 30px;
+    cursor: pointer;   
+    background-color: black;
+    display: inline-block;
+    border-radius: 4px;
+    font-family: Poppins-Bold;
+    text-decoration: none;
+}
+
+.goToHome:hover {
+    font-size: 20px;
+    color: black;
+    padding: 10px 30px;
+    cursor: pointer;   
+    background-color: white;
+    display: inline-block;
+    border-radius: 4px;
+    font-family: Poppins-Bold;
+    border-style: groove;
+    border-color: black;
+}
+

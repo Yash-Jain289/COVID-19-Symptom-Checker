@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <h1>Comment Section</h1>
+</div>
+<div class="container pb-cmnt-container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <form class="form-inline" method="POST" action="/dashboard/comments">
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea" name="comment" id="comment"></textarea>
+                        <button class="btn btn-primary pull-right mb-4 mt-2" type="submit">Comment</button>
+                        <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if(comments.length > 0) { %>
+    <div class="container mb-5">
+        <% for (let comment of comments) { %>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" width="100" height="100"/>
+                        </div>
+                        <div class="col-md-10">
+                            <p>
+                                <a class="float-left"><strong class="strong_style"><%= comment.userId.name %></strong></a>
+                            </p>
+                        <div class="clearfix"></div>
+                            <p><%= comment.comment %></p>
+                        </div>
+                        <div class="fav_section">
+                            <p class="text-secondary text-center"><i class="far fa-clock mr-2"></i><%= comment.time %></p>
+                            <p class="text-secondary text-center"><i class="fas fa-calendar-week mr-2"></i><%= comment.date %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+<% } else { %>
+    <div class="container">
+        <h2 class="comment_h2">No Comments!!</h2> 
+    </div>
+<% } %>
+<%- include('./pagination.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %>

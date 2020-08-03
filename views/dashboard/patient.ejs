@@ -1,0 +1,189 @@
+<%- include('../includes/head.ejs') %>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="/css/patient_dashboard.css">
+</head>
+<body>
+   <%- include('../includes/navigation.ejs') %>
+   <div class="main_header" id="home">
+      <div class="row w-100 h-100">
+         <div class="col-lg-5 col-md-5 col-12 order-lg-1 order-2">
+            <div class="left_side w-100 h-100 d-flex justify-content-center align-items-center">
+               <img src="/images/Main_Image.jpg" height="300" width="300">
+            </div>
+         </div>
+         <div class="col-lg-7 col-md-7 col-12 order-lg-2 order-1">
+            <div class="right_side w-100 h-100 d-flex justify-content-center align-items-center">
+               <h1>Let's Stay Safe & Fight Together Against Cor<span class="cor_rotate"><img src="/images/Corona_Image.png"></span>na Virus</h1>
+            </div>
+         </div> 
+      </div>
+   </div>
+   <section class="cor_update">
+      <div class="mb-3">
+         <h3 class="text-uppercase text-center mb-5">COVID-19 Live Updates</h3>
+      </div>
+      <div class="d-flex justify-content-around align-items-center">
+         <div>
+            <h3 class="count"><%= data.totalCases %></h3>
+            <p>Total Cases</p>
+         </div>
+         <div>
+            <h3 class="count"><%= data.activeCases %></h3>
+            <p>Active Cases</p>
+         </div>
+         <div>
+            <h3 class="count"><%= data.recoveredCases %></h3>
+            <p>Total Recovered</p>
+         </div>
+         <div>
+            <h3 class="count"><%= data.totalDeath %></h3>
+            <p>Total Deaths</p>
+         </div>
+      </div>
+   </section>
+   <div class="container-fluid sub_section pt-5 pb-5" id="about">
+      <div class="section_header text-center mb-5 mt-4">
+         <h1>About COVID-19</h1>
+      </div>
+      <div class="row pt-5">
+         <div class="col-lg-5 col-md-6 col-12 ml-5">
+            <img src="/images/Corona_Side_Image.jpg" class="img-fluid">
+         </div>
+         <div class="col-lg-6 col-md-6 col-12">
+            <h2>What is COVID-19 (Corona-Virus)</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At ultrices mi tempus imperdiet nulla. Pulvinar pellentesque habitant morbi tristique. Placerat orci nulla pellentesque dignissim enim sit amet. Massa massa ultricies mi quis hendrerit dolor magna. Tellus cras adipiscing enim eu.</p>
+            <p>Nisl pretium fusce id velit ut. Ac tortor dignissim convallis aenean et tortor. Integer eget aliquet nibh praesent. Urna molestie at elementum eu facilisis sed odio morbi. Scelerisque varius morbi enim nunc faucibus. Hendrerit gravida rutrum quisque non tellus orci ac auctor. Suspendisse ultrices gravida dictum fusce. Platea dictumst quisque sagittis purus. Dolor magna eget est lorem ipsum. Nisi quis eleifend quam adipiscing vitae.</p>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid pt-5 pb-5" id="symptoms">
+      <div class="section_header text-center mb-5 mt-4">
+         <h1>Coronavirus Symptoms</h1>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-4 col-md-4 col-12 mt-5">
+               <figure class="text-center">
+                  <img src="/images/Cor_Chills.jpg" class="img-fluid" width="120" height="120">
+                  <figcaption>Chills</figcaption>
+               </figure>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mt-5">
+               <figure class="text-center">
+                  <img src="/images/Cor_Cough.jpg" class="img-fluid" width="120" height="120">
+                  <figcaption>Cough</figcaption>
+               </figure>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mt-5">
+               <figure class="text-center">
+                  <img src="/images/Cor_Fever.jpg" class="img-fluid" width="120" height="120">
+                  <figcaption>Fever</figcaption>
+               </figure>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mt-5">
+               <figure class="text-center">
+                  <img src="/images/Cor_Headache.jpg" class="img-fluid" width="120" height="120">
+                  <figcaption>Headache</figcaption>
+               </figure>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mt-5">
+               <figure class="text-center">
+                  <img src="/images/Cor_Nose.jpg" class="img-fluid" width="120" height="120">
+                  <figcaption>Running Nose</figcaption>
+               </figure>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mt-5">
+               <figure class="text-center">
+                  <img src="/images/Cor_Throat.jpg" class="img-fluid" width="120" height="120">
+                  <figcaption>Sore Throat</figcaption>
+               </figure>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid sub_section pt-5 pb-5" id="prevention">
+         <div class="section_header text-center mb-5 mt-4">
+            <h1>6 Steps Prevention Against Corona Virus</h1>
+         </div>
+         <div class="container">
+            <div class="row mb-5">
+               <div class="col-lg-4 col-md-4 col-12">
+                  <div class="row">
+                     <div class="col-lg-4 col-md-4 col-12">
+                        <figure class="text-center">
+                           <img src="/images/Wash_Hand.png" class="img-fluid" width="90" height="90">
+                        </figure>
+                     </div>
+                     <div class="col-lg-8 col-md-8 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-12">
+                  <div class="row">
+                     <div class="col-lg-4 col-md-4 col-12">
+                        <figure class="text-center">
+                           <img src="/images/Mask.png" class="img-fluid" width="90" height="90">
+                        </figure>
+                     </div>
+                     <div class="col-lg-8 col-md-8 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-12">
+                  <div class="row">
+                     <div class="col-lg-4 col-md-4 col-12">
+                        <figure class="text-center">
+                           <img src="/images/Social_Distancing.png" class="img-fluid" width="90" height="90">
+                        </figure>
+                     </div>
+                     <div class="col-lg-8 col-md-8 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-4 col-md-4 col-12">
+                  <div class="row">
+                     <div class="col-lg-4 col-md-4 col-12">
+                        <figure class="text-center">
+                           <img src="/images/Home.png" class="img-fluid" width="90" height="90">
+                        </figure>
+                     </div>
+                     <div class="col-lg-8 col-md-8 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-12">
+                  <div class="row">
+                     <div class="col-lg-4 col-md-4 col-12">
+                        <figure class="text-center">
+                           <img src="/images/Tv.png" class="img-fluid" width="90" height="90">
+                        </figure>
+                     </div>
+                     <div class="col-lg-8 col-md-8 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-12">
+                  <div class="row">
+                     <div class="col-lg-4 col-md-4 col-12">
+                        <figure class="text-center">
+                           <img src="/images/Doctor.png" class="img-fluid" width="90" height="90">
+                        </figure>
+                     </div>
+                     <div class="col-lg-8 col-md-8 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <%- include('../includes/comment.ejs') %>
+<%- include('../includes/end.ejs') %>

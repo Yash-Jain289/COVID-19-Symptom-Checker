@@ -1,0 +1,11 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+   <div class="box">
+      <h1>Welcome Doctor</h1>
+      <form action="/logout" method="POST">
+         <button type="submit">Logout</button>
+         <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+     </form>
+   </div>
+<%- include('../includes/end.ejs') %>
