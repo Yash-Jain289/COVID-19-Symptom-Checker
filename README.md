@@ -1,2 +1,2 @@
 # COVID-19-Symptom-Checker
-A nodejs app to check COVID-19 symptoms
+A nodejs app to check COVID-19 symptoms using Infermedica API for COVID.
